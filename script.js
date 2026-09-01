@@ -1,91 +1,37 @@
-/* ==========================================
-   VARIABLES PRINCIPALES
-   ========================================== */
+// =========================================
+// ELEMENTOS
+// =========================================
 
-// Nombre del jugador que escribió al entrar
-let playerName = "";
+const nameModal = document.getElementById("nameModal");
+const nameInput = document.getElementById("nameInput");
+const enterButton = document.getElementById("enterButton");
+const nameError = document.getElementById("nameError");
 
-// Indica si hay una sesión iniciada
-let isLoggedIn = false;
-
-// Correo del usuario que inició sesión
-let loggedEmail = "";
-
-
-/* ==========================================
-   ELEMENTOS DEL HTML
-   ========================================== */
-
-const welcomeScreen = document.getElementById("welcome-screen");
-const app = document.getElementById("app");
-
-const playerNameInput = document.getElementById("player-name");
-const enterButton = document.getElementById("enter-button");
-const nameError = document.getElementById("name-error");
-
-const displayPlayerName = document.getElementById("display-player-name");
-
-const loginModal = document.getElementById("login-modal");
-const loginNavButton = document.getElementById("login-nav-button");
-
-const loggedUser = document.getElementById("logged-user");
-const loggedUserName = document.getElementById("logged-user-name");
-
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-
-const loginMessage = document.getElementById("login-message");
+const playerName = document.getElementById("playerName");
+const welcomeName = document.getElementById("welcomeName");
 
 
-/* ==========================================
-   ENTRAR A LA PÁGINA
-   ========================================== */
+// =========================================
+// COMPROBAR SI YA EXISTE UN NOMBRE
+// =========================================
 
-function enterPage() {
+const savedName = localStorage.getItem("playerName");
 
-    const name = playerNameInput.value.trim();
+if (savedName) {
 
-    // Comprobar que haya escrito algo
-    if (name === "") {
+    playerName.textContent = savedName;
+    welcomeName.textContent = savedName;
 
-        nameError.textContent =
-            "Por favor, escribe tu nombre para continuar.";
-
-        playerNameInput.focus();
-
-        return;
-    }
-
-    // Guardar el nombre
-    playerName = name;
-
-    // Mostrar el nombre en el menú
-    displayPlayerName.textContent = playerName;
-
-    // Ocultar pantalla de bienvenida
-    welcomeScreen.classList.remove("active");
-    welcomeScreen.classList.add("hidden");
-
-    // Mostrar aplicación
-    app.classList.remove("hidden");
-
-    // Asegurarnos de comenzar en el menú principal
-    showSection("home");
 }
 
 
-/* ==========================================
-   BOTÓN ENTRAR
-   ========================================== */
+// =========================================
+// ENTRAR A LA PÁGINA
+// =========================================
 
 enterButton.addEventListener("click", enterPage);
 
-
-/* ==========================================
-   ENTER PARA ESCRIBIR EL NOMBRE
-   ========================================== */
-
-playerNameInput.addEventListener("keydown", function(event) {
+nameInput.addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {
         enterPage();
@@ -94,251 +40,64 @@ playerNameInput.addEventListener("keydown", function(event) {
 });
 
 
-/* ==========================================
-   CAMBIAR DE SECCIÓN
-   ========================================== */
+function enterPage() {
 
-function showSection(sectionId) {
+    const name = nameInput.value.trim();
 
-    // Obtener todas las secciones
-    const sections = document.querySelectorAll(".section");
+    // Comprobar que haya un nombre
+    if (name === "") {
 
-    // Ocultar todas
-    sections.forEach(function(section) {
+        nameError.textContent =
+            "Por favor, escribe tu nombre para continuar.";
 
-        section.classList.remove("active-section");
-
-    });
-
-
-    // Buscar la sección seleccionada
-    const selectedSection = document.getElementById(sectionId);
-
-    if (selectedSection) {
-
-        selectedSection.classList.add("active-section");
-
-    }
-
-
-    // Llevar la página hacia arriba
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* ==========================================
-   ABRIR LOGIN
-   ========================================== */
-
-function openLogin() {
-
-    // Limpiar mensaje anterior
-    loginMessage.textContent = "";
-
-    // Mostrar modal
-    loginModal.classList.remove("hidden");
-
-    // Colocar el cursor en el correo
-    setTimeout(function() {
-
-        emailInput.focus();
-
-    }, 100);
-
-}
-
-
-/* ==========================================
-   CERRAR LOGIN
-   ========================================== */
-
-function closeLogin() {
-
-    loginModal.classList.add("hidden");
-
-    // Limpiar campos
-    emailInput.value = "";
-    passwordInput.value = "";
-
-    // Limpiar mensaje
-    loginMessage.textContent = "";
-
-}
-
-
-/* ==========================================
-   INICIAR SESIÓN
-   ========================================== */
-
-function login() {
-
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
-
-    /*
-       IMPORTANTE:
-
-       No hacemos ninguna comprobación real.
-
-       Cualquier correo y cualquier contraseña
-       serán aceptados.
-    */
-
-
-    // Solo comprobamos que los campos no estén completamente vacíos
-    if (email === "" || password === "") {
-
-        loginMessage.textContent =
-            "Por favor, completa los dos campos.";
-
-        loginMessage.style.color = "#dc2626";
+        nameInput.focus();
 
         return;
     }
 
 
-    // Guardar los datos
-    loggedEmail = email;
-    isLoggedIn = true;
+    // Guardar el nombre
+    localStorage.setItem("playerName", name);
 
 
-    // Cambiar interfaz
-    loginNavButton.classList.add("hidden");
-
-    loggedUser.classList.remove("hidden");
-
-
-    // Mostrar información de la sesión
-    loggedUserName.textContent =
-        "👤 Sesión iniciada: " + email;
+    // Mostrar el nombre en la página
+    playerName.textContent = name;
+    welcomeName.textContent = name;
 
 
-    // Mensaje de éxito
-    loginMessage.textContent =
-        "¡Sesión iniciada correctamente!";
-
-    loginMessage.style.color = "#16a34a";
-
-
-    // Cerrar automáticamente después de un momento
-    setTimeout(function() {
-
-        closeLogin();
-
-    }, 1200);
+    // Cerrar la ventana
+    nameModal.style.display = "none";
 
 }
 
 
-/* ==========================================
-   ENTER PARA INICIAR SESIÓN
-   ========================================== */
+// =========================================
+// IMPEDIR SCROLL MIENTRAS ESTÁ EL MODAL
+// =========================================
 
-emailInput.addEventListener("keydown", function(event) {
+if (!savedName) {
 
-    if (event.key === "Enter") {
+    document.body.style.overflow = "hidden";
 
-        login();
+}
 
-    }
+else {
 
-});
-
-
-passwordInput.addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-
-        login();
-
-    }
-
-});
-
-
-/* ==========================================
-   CERRAR SESIÓN
-   ========================================== */
-
-function logout() {
-
-    // Cambiar estado
-    isLoggedIn = false;
-
-    loggedEmail = "";
-
-
-    // Volver a mostrar botón de login
-    loginNavButton.classList.remove("hidden");
-
-
-    // Ocultar información de sesión
-    loggedUser.classList.add("hidden");
-
-
-    // Restaurar texto
-    loggedUserName.textContent =
-        "👤 Sesión iniciada";
-
-
-    // Opcionalmente regresar al menú
-    showSection("home");
+    nameModal.style.display = "none";
 
 }
 
 
-/* ==========================================
-   CERRAR MODAL AL HACER CLICK FUERA
-   ========================================== */
+// =========================================
+// QUITAR EL BLOQUEO AL ENTRAR
+// =========================================
 
-loginModal.addEventListener("click", function(event) {
+enterButton.addEventListener("click", function() {
 
-    // Si se hizo click directamente sobre el fondo
-    if (event.target === loginModal) {
+    if (nameInput.value.trim() !== "") {
 
-        closeLogin();
-
-    }
-
-});
-
-
-/* ==========================================
-   ESC PARA CERRAR EL LOGIN
-   ========================================== */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        if (!loginModal.classList.contains("hidden")) {
-
-            closeLogin();
-
-        }
+        document.body.style.overflow = "auto";
 
     }
 
 });
-
-
-/* ==========================================
-   INICIO
-   ========================================== */
-
-// Asegurarnos de que el login comience cerrado
-loginModal.classList.add("hidden");
-
-// La aplicación comienza oculta
-app.classList.add("hidden");
-
-// La pantalla de bienvenida comienza visible
-welcomeScreen.classList.remove("hidden");
-
-// Mostrar menú principal cuando corresponda
-showSection("home");

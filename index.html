@@ -3,465 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>La Hora de los Juegos - Catálogo de Juegos</title>
+    <title>La Hora de los Juegos</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ==========================================
-         VENTANA INICIAL - NOMBRE DEL JUGADOR
-         ========================================== -->
+    <!-- ==============================
+         VENTANA OBLIGATORIA DE NOMBRE
+    =============================== -->
+    <div class="modal-overlay" id="nameModal">
 
-    <div id="welcome-screen" class="screen active">
+        <div class="name-modal">
 
-        <div class="welcome-box">
+            <div class="modal-icon">🎮</div>
+
+            <h2>¡Bienvenido!</h2>
+
+            <p>
+                Para entrar a <strong>La Hora de los Juegos</strong>,
+                escribe tu nombre.
+            </p>
+
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="Escribe tu nombre..."
+                maxlength="20"
+                autocomplete="off"
+            >
+
+            <p class="error-message" id="nameError"></p>
+
+            <button id="enterButton">
+                ENTRAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         PÁGINA PRINCIPAL
+    =============================== -->
+    <main id="mainPage">
+
+        <!-- ENCABEZADO -->
+        <header class="header">
 
             <div class="logo">
                 🎮
             </div>
 
-            <h1>La Hora de los Juegos</h1>
-
-            <p>¡Bienvenido a nuestra colección de juegos!</p>
-
-            <p class="welcome-text">
-                Antes de comenzar, escribe tu nombre.
-            </p>
-
-            <input
-                type="text"
-                id="player-name"
-                placeholder="Escribe tu nombre"
-                autocomplete="off"
-            >
-
-            <button id="enter-button">
-                Entrar
-            </button>
-
-            <p id="name-error" class="error-message"></p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ==========================================
-         APLICACIÓN PRINCIPAL
-         ========================================== -->
-
-    <div id="app" class="hidden">
-
-
-        <!-- ======================================
-             BARRA DE NAVEGACIÓN
-             ====================================== -->
-
-        <header class="navbar">
-
-            <div class="navbar-logo" onclick="showSection('home')">
-                🎮 <span>La Hora de los Juegos</span>
+            <div class="header-text">
+                <h1>La Hora de los Juegos</h1>
+                <p>¡Elige un juego y diviértete!</p>
             </div>
 
-            <nav>
-
-                <button onclick="showSection('home')">
-                    🏠 Menú principal
-                </button>
-
-                <button onclick="showSection('about')">
-                    ℹ️ Sobre nosotros
-                </button>
-
-                <!-- Este botón cambia cuando se inicia sesión -->
-                <button id="login-nav-button" onclick="openLogin()">
-                    🔐 Iniciar sesión
-                </button>
-
-                <!-- Aparece solamente cuando hay sesión -->
-                <div id="logged-user" class="hidden">
-
-                    <span id="logged-user-name">
-                        👤 Sesión iniciada
-                    </span>
-
-                    <button onclick="logout()">
-                        🚪 Cerrar sesión
-                    </button>
-
-                </div>
-
-            </nav>
+            <div class="player">
+                <span>Jugador</span>
+                <strong id="playerName">Jugador</strong>
+            </div>
 
         </header>
 
 
-        <!-- ======================================
-             CONTENIDO PRINCIPAL
-             ====================================== -->
-
-        <main>
-
-
-            <!-- ==================================
-                 MENÚ PRINCIPAL
-                 ================================== -->
-
-            <section id="home" class="section active-section">
-
-                <div class="hero">
-
-                    <p class="greeting">
-                        ¡Hola, <span id="display-player-name"></span>! 👋
-                    </p>
-
-                    <h1>La Hora de los Juegos</h1>
-
-                    <p>
-                        Elige un juego y demuestra tus habilidades.
-                    </p>
-
-                </div>
-
-
-                <!-- TARJETAS DE LOS JUEGOS -->
-
-                <div class="games-container">
-
-
-                    <!-- TRIQUI -->
-
-                    <article class="game-card">
-
-                        <div class="game-icon">
-                            ❌⭕
-                        </div>
-
-                        <h2>Triqui</h2>
-
-                        <p>
-                            Enfréntate a otro jugador y consigue
-                            tres símbolos en línea.
-                        </p>
-
-                        <button onclick="showSection('triqui')">
-                            Jugar
-                        </button>
-
-                    </article>
-
-
-                    <!-- AHORCADO -->
-
-                    <article class="game-card">
-
-                        <div class="game-icon">
-                            🔤
-                        </div>
-
-                        <h2>Ahorcado</h2>
-
-                        <p>
-                            Descubre la palabra antes de quedarte
-                            sin oportunidades.
-                        </p>
-
-                        <button onclick="showSection('ahorcado')">
-                            Jugar
-                        </button>
-
-                    </article>
-
-
-                    <!-- TRIVIA -->
-
-                    <article class="game-card">
-
-                        <div class="game-icon">
-                            🧠
-                        </div>
-
-                        <h2>Trivia</h2>
-
-                        <p>
-                            Pon a prueba tus conocimientos
-                            respondiendo diferentes preguntas.
-                        </p>
-
-                        <button onclick="showSection('trivia')">
-                            Jugar
-                        </button>
-
-                    </article>
-
-
-                    <!-- PIEDRA, PAPEL O TIJERA -->
-
-                    <article class="game-card">
-
-                        <div class="game-icon">
-                            ✊✋✌️
-                        </div>
-
-                        <h2>Piedra, Papel o Tijera</h2>
-
-                        <p>
-                            Elige tu movimiento y compite
-                            contra la computadora.
-                        </p>
-
-                        <button onclick="showSection('ppt')">
-                            Jugar
-                        </button>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================
-                 SOBRE NOSOTROS
-                 ================================== -->
-
-            <section id="about" class="section">
-
-                <div class="content-box">
-
-                    <h1>ℹ️ Sobre nosotros</h1>
-
-                    <p>
-                        Bienvenido a La Hora de los Juegos, un catálogo
-                        interactivo de juegos creado como proyecto
-                        productivo del SENA.
-                    </p>
-
-                    <p>
-                        Nuestro objetivo es reunir diferentes juegos
-                        clásicos en una sola página web, ofreciendo
-                        una experiencia sencilla, entretenida y fácil
-                        de utilizar.
-                    </p>
-
-                    <h2>🎮 Nuestros juegos</h2>
-
-                    <p>
-                        Actualmente La Hora de los Juegos cuenta con
-                        cuatro juegos: Triqui, Ahorcado, Trivia y
-                        Piedra, Papel o Tijera.
-                    </p>
-
-                    <button onclick="showSection('home')">
-                        🏠 Volver al menú
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================
-                 JUEGO: TRIQUI
-                 ================================== -->
-
-            <section id="triqui" class="section game-section">
-
-                <button
-                    class="back-button"
-                    onclick="showSection('home')"
-                >
-                    ← Volver al menú
-                </button>
-
-                <div class="game-container">
-
-                    <h1>❌⭕ Triqui</h1>
-
-                    <!-- AQUÍ IRÁ EL JUEGO DE TRIQUI -->
-
-                    <div id="triqui-game">
-
-                        <p>
-                            Aquí irá el juego de Triqui.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================
-                 JUEGO: AHORCADO
-                 ================================== -->
-
-            <section id="ahorcado" class="section game-section">
-
-                <button
-                    class="back-button"
-                    onclick="showSection('home')"
-                >
-                    ← Volver al menú
-                </button>
-
-                <div class="game-container">
-
-                    <h1>🔤 Ahorcado</h1>
-
-                    <!-- AQUÍ IRÁ EL JUEGO DE AHORCADO -->
-
-                    <div id="ahorcado-game">
-
-                        <p>
-                            Aquí irá el juego de Ahorcado.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================
-                 JUEGO: TRIVIA
-                 ================================== -->
-
-            <section id="trivia" class="section game-section">
-
-                <button
-                    class="back-button"
-                    onclick="showSection('home')"
-                >
-                    ← Volver al menú
-                </button>
-
-                <div class="game-container">
-
-                    <h1>🧠 Trivia</h1>
-
-                    <!-- AQUÍ IRÁ EL JUEGO DE TRIVIA -->
-
-                    <div id="trivia-game">
-
-                        <p>
-                            Aquí irá el juego de Trivia.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================
-                 JUEGO: PIEDRA, PAPEL O TIJERA
-                 ================================== -->
-
-            <section id="ppt" class="section game-section">
-
-                <button
-                    class="back-button"
-                    onclick="showSection('home')"
-                >
-                    ← Volver al menú
-                </button>
-
-                <div class="game-container">
-
-                    <h1>✊✋✌️ Piedra, Papel o Tijera</h1>
-
-                    <!-- AQUÍ IRÁ EL JUEGO DE PIEDRA,
-                         PAPEL O TIJERA -->
-
-                    <div id="ppt-game">
-
-                        <p>
-                            Aquí irá el juego de Piedra, Papel o Tijera.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-
-    </div>
-
-
-    <!-- ==========================================
-         VENTANA DE INICIAR SESIÓN
-         ========================================== -->
-
-    <div id="login-modal" class="modal hidden">
-
-        <div class="modal-content">
-
-            <button
-                class="close-button"
-                onclick="closeLogin()"
-            >
-                ×
-            </button>
-
-            <div class="login-icon">
-                🔐
-            </div>
-
-            <h2>Iniciar sesión</h2>
+        <!-- BIENVENIDA -->
+        <section class="welcome">
+
+            <p class="welcome-small">¡Hola!</p>
+
+            <h2>
+                <span id="welcomeName">Jugador</span>,
+                ¿a qué quieres jugar?
+            </h2>
 
             <p>
-                Ingresa tus datos para iniciar sesión.
+                Escoge uno de nuestros juegos y demuestra lo que sabes.
             </p>
 
-
-            <label for="email">
-                Correo electrónico
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="ejemplo@correo.com"
-            >
+        </section>
 
 
-            <label for="password">
-                Contraseña
-            </label>
+        <!-- JUEGOS -->
+        <section class="games-section">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Escribe tu contraseña"
-            >
+            <div class="game-card">
 
+                <div class="game-icon">
+                    ❌⭕
+                </div>
 
-            <button
-                id="login-button"
-                onclick="login()"
-            >
-                Iniciar sesión
-            </button>
+                <h3>Triqui</h3>
 
-            <p id="login-message"></p>
+                <p>
+                    Pon tres símbolos en línea antes que tu rival.
+                </p>
 
-        </div>
+                <a href="triqui/index.html" class="play-button">
+                    JUGAR
+                </a>
 
-    </div>
+            </div>
 
 
-    <!-- ==========================================
-         JAVASCRIPT
-         ========================================== -->
+            <div class="game-card">
+
+                <div class="game-icon">
+                    💀
+                </div>
+
+                <h3>Ahorcado</h3>
+
+                <p>
+                    Adivina la palabra antes de quedarte sin oportunidades.
+                </p>
+
+                <a href="ahorcado/index.html" class="play-button">
+                    JUGAR
+                </a>
+
+            </div>
+
+
+            <div class="game-card">
+
+                <div class="game-icon">
+                    🧠
+                </div>
+
+                <h3>Trivia</h3>
+
+                <p>
+                    Responde las preguntas y demuestra cuánto sabes.
+                </p>
+
+                <a href="trivia/index.html" class="play-button">
+                    JUGAR
+                </a>
+
+            </div>
+
+
+            <div class="game-card">
+
+                <div class="game-icon">
+                    ✊
+                </div>
+
+                <h3>Piedra, Papel o Tijera</h3>
+
+                <p>
+                    Elige tu jugada y vence a tu oponente.
+                </p>
+
+                <a href="piedra-papel-tijera/index.html" class="play-button">
+                    JUGAR
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PIE DE PÁGINA -->
+        <footer>
+            <p>🎮 La Hora de los Juegos</p>
+        </footer>
+
+    </main>
+
 
     <script src="script.js"></script>
 
