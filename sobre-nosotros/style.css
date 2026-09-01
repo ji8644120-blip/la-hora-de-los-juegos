@@ -1,0 +1,284 @@
+/* ==============================
+   CONFIGURACIÓN GENERAL
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff1f2;
+    color: #4a1d1f;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   ENCABEZADO
+============================== */
+
+.header {
+    width: 100%;
+    background: #fecdd3;
+    border-bottom: 3px solid #fda4af;
+
+    display: flex;
+    align-items: center;
+
+    padding: 25px 7%;
+    gap: 18px;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+
+    background: #fb7185;
+    border: 3px solid #e11d48;
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+.header-text h1 {
+    color: #be123c;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    color: #881337;
+    font-size: 16px;
+}
+
+
+/* ==============================
+   CONTENEDOR PRINCIPAL
+============================== */
+
+.about-container {
+    width: 88%;
+    max-width: 1100px;
+    margin: 40px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+/* ==============================
+   SECCIONES
+============================== */
+
+.about-section {
+    background: #ffe4e6;
+
+    border: 2px solid #fda4af;
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow: 0 5px 15px rgba(136, 19, 55, 0.08);
+
+    text-align: center;
+}
+
+.section-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.about-section h2 {
+    color: #e11d48;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.about-section p {
+    color: #4a1d1f;
+    font-size: 17px;
+    line-height: 1.7;
+
+    max-width: 850px;
+    margin: 0 auto 12px;
+}
+
+.about-section strong {
+    color: #be123c;
+}
+
+
+/* ==============================
+   TARJETAS DE JUEGOS
+============================== */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.feature-card {
+    background: #fff1f2;
+
+    border: 2px solid #fda4af;
+    border-radius: 15px;
+
+    padding: 22px;
+
+    transition: 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: #fb7185;
+}
+
+.feature-card span {
+    font-size: 35px;
+}
+
+.feature-card h3 {
+    color: #be123c;
+    font-size: 21px;
+
+    margin: 10px 0;
+}
+
+.feature-card p {
+    font-size: 15px;
+    line-height: 1.5;
+
+    margin-bottom: 0;
+}
+
+
+/* ==============================
+   CONTACTO
+============================== */
+
+.contact-section {
+    background: #fecdd3;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    background: #fff1f2;
+
+    border: 1px solid #fda4af;
+    border-radius: 10px;
+
+    padding: 12px 18px;
+
+    max-width: 500px;
+}
+
+
+/* ==============================
+   BOTÓN VOLVER
+============================== */
+
+.back-button {
+    display: block;
+
+    width: fit-content;
+
+    margin: 5px auto 20px;
+
+    background: #e11d48;
+    color: white;
+
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    background: #be123c;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   PIE DE PÁGINA
+============================== */
+
+footer {
+    background: #fecdd3;
+
+    border-top: 2px solid #fda4af;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #881337;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 20px 5%;
+    }
+
+    .header-text h1 {
+        font-size: 25px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .about-container {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    .about-section {
+        padding: 22px 17px;
+    }
+
+    .about-section h2 {
+        font-size: 24px;
+    }
+
+    .about-section p {
+        font-size: 15px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        width: 55px;
+        height: 55px;
+        font-size: 27px;
+    }
+}
