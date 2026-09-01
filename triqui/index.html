@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Triqui | La Hora de los Juegos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+
+        <div class="logo">
+            🎮
+        </div>
+
+        <div class="header-text">
+            <h1>La Hora de los Juegos</h1>
+            <p>Triqui</p>
+        </div>
+
+    </header>
+
+
+    <!-- JUEGO -->
+    <main class="game-container">
+
+        <h2>❌ Triqui ⭕</h2>
+
+        <p class="instructions">
+            Consigue tres símbolos en línea para ganar.
+        </p>
+
+
+        <!-- INFORMACIÓN DEL JUGADOR -->
+        <section class="players">
+
+            <div class="player-card active" id="playerX">
+                <span class="player-symbol">❌</span>
+                <div>
+                    <span>Jugador</span>
+                    <strong id="playerNameX">Jugador</strong>
+                </div>
+            </div>
+
+            <div class="vs">
+                VS
+            </div>
+
+            <div class="player-card" id="playerO">
+                <span class="player-symbol">⭕</span>
+                <div>
+                    <span>Oponente</span>
+                    <strong>Computadora</strong>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- TURNO -->
+        <div class="turn-message" id="turnMessage">
+            Turno de ❌
+        </div>
+
+
+        <!-- TABLERO -->
+        <section class="board" id="board">
+
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+
+        </section>
+
+
+        <!-- RESULTADO -->
+        <div class="result-message" id="resultMessage"></div>
+
+
+        <!-- BOTONES -->
+        <div class="game-buttons">
+
+            <button id="restartButton" class="main-button">
+                🔄 NUEVA PARTIDA
+            </button>
+
+            <a href="../index.html" class="menu-button">
+                🏠 MENÚ PRINCIPAL
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <p>
+            🎮 La Hora de los Juegos
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
