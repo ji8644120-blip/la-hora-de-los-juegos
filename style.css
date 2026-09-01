@@ -259,13 +259,14 @@ body {
 
 .games-section {
     width: 88%;
-    max-width: 1200px;
+    max-width: 1000px;
 
     margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    /* 2 TARJETAS ARRIBA Y 2 ABAJO */
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 22px;
 
@@ -387,14 +388,6 @@ footer {
 /* =========================================
    RESPONSIVE
 ========================================= */
-
-@media (max-width: 1000px) {
-
-    .games-section {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
 
 @media (max-width: 650px) {
 
