@@ -1,0 +1,379 @@
+/* ==============================
+   CONFIGURACIÓN GENERAL
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff1f2;
+    color: #4a1d1f;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==============================
+   ENCABEZADO
+============================== */
+
+.header {
+    width: 100%;
+
+    background: #fecdd3;
+    border-bottom: 3px solid #fda4af;
+
+    display: flex;
+    align-items: center;
+
+    padding: 22px 7%;
+    gap: 18px;
+}
+
+.logo {
+    width: 62px;
+    height: 62px;
+
+    background: #fb7185;
+    border: 3px solid #e11d48;
+    border-radius: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 31px;
+}
+
+.header-text h1 {
+    color: #be123c;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    color: #881337;
+    font-size: 16px;
+}
+
+
+/* ==============================
+   CONTENEDOR DEL JUEGO
+============================== */
+
+.game-container {
+    width: 90%;
+    max-width: 800px;
+
+    margin: 35px auto;
+
+    text-align: center;
+}
+
+.game-container > h2 {
+    color: #e11d48;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.instructions {
+    color: #881337;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   JUGADORES
+============================== */
+
+.players {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.player-card {
+    width: 230px;
+
+    background: #ffe4e6;
+
+    border: 2px solid #fda4af;
+    border-radius: 15px;
+
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    transition: 0.2s;
+}
+
+.player-card.active {
+    border-color: #e11d48;
+
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.12);
+}
+
+.player-symbol {
+    font-size: 32px;
+}
+
+.player-card span:not(.player-symbol) {
+    display: block;
+
+    color: #881337;
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+.player-card strong {
+    display: block;
+
+    color: #be123c;
+    font-size: 17px;
+}
+
+.vs {
+    color: #e11d48;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* ==============================
+   MENSAJE DE TURNO
+============================== */
+
+.turn-message {
+    display: inline-block;
+
+    background: #fecdd3;
+    border: 2px solid #fda4af;
+    border-radius: 10px;
+
+    padding: 10px 22px;
+
+    color: #881337;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==============================
+   TABLERO
+============================== */
+
+.board {
+    width: 330px;
+    height: 330px;
+
+    margin: 0 auto 25px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.cell {
+    border: 3px solid #fda4af;
+    border-radius: 14px;
+
+    background: #ffe4e6;
+
+    font-size: 55px;
+    font-weight: bold;
+
+    color: #e11d48;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+.cell:hover {
+    background: #fecdd3;
+    border-color: #fb7185;
+    transform: scale(1.03);
+}
+
+.cell:disabled {
+    cursor: default;
+}
+
+.cell:disabled:hover {
+    transform: none;
+}
+
+
+/* ==============================
+   RESULTADO
+============================== */
+
+.result-message {
+    min-height: 30px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 18px;
+}
+
+.result-message.win {
+    color: #16a34a;
+}
+
+.result-message.lose {
+    color: #dc2626;
+}
+
+
+/* ==============================
+   BOTONES
+============================== */
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.main-button,
+.menu-button {
+    border: none;
+    border-radius: 10px;
+
+    padding: 13px 22px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.main-button {
+    background: #e11d48;
+    color: white;
+}
+
+.main-button:hover {
+    background: #be123c;
+    transform: translateY(-2px);
+}
+
+.menu-button {
+    background: #fb7185;
+    color: white;
+}
+
+.menu-button:hover {
+    background: #e11d48;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   PIE DE PÁGINA
+============================== */
+
+footer {
+    margin-top: auto;
+
+    background: #fecdd3;
+    border-top: 2px solid #fda4af;
+
+    text-align: center;
+
+    padding: 18px;
+
+    color: #881337;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 650px) {
+
+    .header {
+        padding: 18px 5%;
+    }
+
+    .header-text h1 {
+        font-size: 24px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+    }
+
+    .game-container {
+        margin-top: 25px;
+    }
+
+    .game-container > h2 {
+        font-size: 28px;
+    }
+
+    .players {
+        gap: 8px;
+    }
+
+    .player-card {
+        width: 45%;
+        padding: 11px 5px;
+    }
+
+    .player-symbol {
+        font-size: 25px;
+    }
+
+    .player-card strong {
+        font-size: 14px;
+    }
+
+    .vs {
+        font-size: 14px;
+    }
+
+    .board {
+        width: 290px;
+        height: 290px;
+    }
+
+    .cell {
+        font-size: 45px;
+    }
+}
