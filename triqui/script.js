@@ -12,7 +12,6 @@ const playerNameX = document.getElementById("playerNameX");
 const playerX = document.getElementById("playerX");
 const playerO = document.getElementById("playerO");
 
-
 // ==============================
 // NOMBRE DEL JUGADOR
 // ==============================
@@ -23,17 +22,18 @@ if (savedName) {
     playerNameX.textContent = savedName;
 }
 
-
 // ==============================
 // VARIABLES
 // ==============================
 
-let board = ["", "", "", "", "", "", "", ""];
+let board = ["", "", "", "", "", "", "", "",];
 
 let gameActive = true;
 
 let currentPlayer = "X";
 
+// Evita que el jugador pueda jugar mientras piensa la computadora
+let playerCanPlay = true;
 
 // ==============================
 // COMBINACIONES GANADORAS
@@ -52,38 +52,53 @@ const winningCombinations = [
     [2, 4, 6]
 ];
 
-
 // ==============================
-// EVENTOS
+// EVENTOS DE LAS CASILLAS
 // ==============================
 
 cells.forEach(cell => {
 
     cell.addEventListener("click", () => {
 
-        const index = cell.dataset.index;
+        const index = Number(cell.dataset.index);
 
-        if (board[index] !== "" || !gameActive) {
+        // No permitir jugar si no es el turno
+        if (!gameActive || !playerCanPlay) {
             return;
         }
 
-        // Jugada del jugador
+        // No permitir jugar en una casilla ocupada
+        if (board[index] !== "") {
+            return;
+        }
+
+        // ==============================
+        // JUGADA DEL JUGADOR
+        // ==============================
+
         board[index] = "X";
         cell.textContent = "❌";
         cell.disabled = true;
 
+        // Comprobar si ganó
         if (checkWinner("X")) {
             endGame("win", "🎉 ¡Ganaste!");
             return;
         }
 
+        // Comprobar empate
         if (checkDraw()) {
             endGame("draw", "🤝 ¡Empate!");
             return;
         }
 
-        // Turno de la computadora
+        // ==============================
+        // TURNO DE LA COMPUTADORA
+        // ==============================
+
         currentPlayer = "O";
+
+        playerCanPlay = false;
 
         updateTurn();
 
@@ -91,7 +106,6 @@ cells.forEach(cell => {
     });
 
 });
-
 
 // ==============================
 // JUGADA DE LA COMPUTADORA
@@ -117,38 +131,39 @@ function computerMove() {
         return;
     }
 
-
     // La computadora elige una casilla disponible
     const randomIndex =
         Math.floor(Math.random() * availableCells.length);
 
-    const chosenCell =
-        availableCells[randomIndex];
-
+    const chosenCell = availableCells[randomIndex];
 
     board[chosenCell] = "O";
 
     cells[chosenCell].textContent = "⭕";
     cells[chosenCell].disabled = true;
 
-
+    // Comprobar si ganó
     if (checkWinner("O")) {
         endGame("lose", "😔 ¡La computadora ganó!");
         return;
     }
 
+    // Comprobar empate
     if (checkDraw()) {
         endGame("draw", "🤝 ¡Empate!");
         return;
     }
 
+    // ==============================
+    // REGRESA EL TURNO AL JUGADOR
+    // ==============================
 
-    // Regresa el turno al jugador
     currentPlayer = "X";
+
+    playerCanPlay = true;
 
     updateTurn();
 }
-
 
 // ==============================
 // COMPROBAR GANADOR
@@ -166,7 +181,7 @@ function checkWinner(symbol) {
             board[c] === symbol
         ) {
 
-            // Resaltar las casillas ganadoras
+            // Resaltar casillas ganadoras
             cells[a].style.borderColor = "#16a34a";
             cells[b].style.borderColor = "#16a34a";
             cells[c].style.borderColor = "#16a34a";
@@ -178,17 +193,13 @@ function checkWinner(symbol) {
     return false;
 }
 
-
 // ==============================
 // COMPROBAR EMPATE
 // ==============================
 
 function checkDraw() {
-
     return board.every(cell => cell !== "");
-
 }
-
 
 // ==============================
 // FINALIZAR PARTIDA
@@ -197,6 +208,7 @@ function checkDraw() {
 function endGame(type, message) {
 
     gameActive = false;
+    playerCanPlay = false;
 
     resultMessage.textContent = message;
 
@@ -215,9 +227,7 @@ function endGame(type, message) {
     cells.forEach(cell => {
         cell.disabled = true;
     });
-
 }
-
 
 // ==============================
 // ACTUALIZAR TURNO
@@ -240,16 +250,13 @@ function updateTurn() {
         playerX.classList.remove("active");
 
     }
-
 }
-
 
 // ==============================
 // REINICIAR PARTIDA
 // ==============================
 
 restartButton.addEventListener("click", restartGame);
-
 
 function restartGame() {
 
@@ -258,6 +265,8 @@ function restartGame() {
     gameActive = true;
 
     currentPlayer = "X";
+
+    playerCanPlay = true;
 
     resultMessage.textContent = "";
 
@@ -274,5 +283,4 @@ function restartGame() {
     });
 
     updateTurn();
-
 }
