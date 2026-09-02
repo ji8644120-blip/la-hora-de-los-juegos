@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ahorcado</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <h1>🎯 Ahorcado</h1>
+
+        <p class="subtitle">Adivina la palabra antes de quedarte sin intentos</p>
+
+        <!-- Área del dibujo -->
+        <section class="hangman-area">
+
+            <div id="hangman-drawing">
+                <div class="gallows"></div>
+                <div class="head"></div>
+                <div class="body"></div>
+                <div class="left-arm"></div>
+                <div class="right-arm"></div>
+                <div class="left-leg"></div>
+                <div class="right-leg"></div>
+            </div>
+
+            <div class="game-info">
+                <p>Intentos restantes: <span id="attempts">6</span></p>
+            </div>
+
+        </section>
+
+        <!-- Palabra -->
+        <section class="word-area">
+            <div id="word"></div>
+        </section>
+
+        <!-- Letras -->
+        <section class="letters-area">
+            <h2>Elige una letra</h2>
+
+            <div id="letters"></div>
+        </section>
+
+        <!-- Mensaje -->
+        <p id="message"></p>
+
+        <!-- Reiniciar -->
+        <button id="restart-btn">🔄 Nueva partida</button>
+
+        <!-- Volver -->
+        <a href="../index.html" class="back-btn">← Volver a los juegos</a>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
