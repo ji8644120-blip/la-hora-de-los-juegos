@@ -1,0 +1,438 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.game-container {
+    width: 100%;
+    max-width: 850px;
+
+    background: #181818;
+
+    border: 1px solid #303030;
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #aaaaaa;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   ÁREA DEL AHORCADO
+========================= */
+
+.hangman-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+#hangman-drawing {
+    position: relative;
+
+    width: 250px;
+    height: 280px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   CUERPO DEL AHORCADO
+========================= */
+
+.gallows {
+    position: absolute;
+
+    width: 150px;
+    height: 8px;
+
+    background: white;
+
+    left: 50px;
+    top: 25px;
+}
+
+.gallows::before {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 240px;
+
+    background: white;
+
+    left: 0;
+    top: 0;
+}
+
+.gallows::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 8px;
+
+    background: white;
+
+    left: -5px;
+    top: 235px;
+}
+
+
+/* Cabeza */
+
+.head {
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    border: 6px solid white;
+    border-radius: 50%;
+
+    left: 145px;
+    top: 55px;
+
+    display: none;
+}
+
+
+/* Cuerpo */
+
+.body {
+    position: absolute;
+
+    width: 6px;
+    height: 90px;
+
+    background: white;
+
+    left: 171px;
+    top: 110px;
+
+    display: none;
+}
+
+
+/* Brazo izquierdo */
+
+.left-arm {
+    position: absolute;
+
+    width: 65px;
+    height: 6px;
+
+    background: white;
+
+    left: 112px;
+    top: 130px;
+
+    transform: rotate(-35deg);
+
+    transform-origin: right;
+
+    display: none;
+}
+
+
+/* Brazo derecho */
+
+.right-arm {
+    position: absolute;
+
+    width: 65px;
+    height: 6px;
+
+    background: white;
+
+    left: 171px;
+    top: 130px;
+
+    transform: rotate(35deg);
+
+    transform-origin: left;
+
+    display: none;
+}
+
+
+/* Pierna izquierda */
+
+.left-leg {
+    position: absolute;
+
+    width: 70px;
+    height: 6px;
+
+    background: white;
+
+    left: 115px;
+    top: 195px;
+
+    transform: rotate(-45deg);
+
+    transform-origin: right;
+
+    display: none;
+}
+
+
+/* Pierna derecha */
+
+.right-leg {
+    position: absolute;
+
+    width: 70px;
+    height: 6px;
+
+    background: white;
+
+    left: 168px;
+    top: 195px;
+
+    transform: rotate(45deg);
+
+    transform-origin: left;
+
+    display: none;
+}
+
+
+/* =========================
+   INTENTOS
+========================= */
+
+.game-info {
+    font-size: 18px;
+}
+
+#attempts {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+/* =========================
+   PALABRA
+========================= */
+
+.word-area {
+    margin: 25px 0;
+}
+
+#word {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 45px;
+
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+
+/* =========================
+   LETRAS
+========================= */
+
+.letters-area {
+    margin-top: 20px;
+}
+
+.letters-area h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+
+    color: #cccccc;
+}
+
+#letters {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+.letter-btn {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #292929;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.letter-btn:hover {
+    background: #3d3d3d;
+    transform: translateY(-2px);
+}
+
+.letter-btn:disabled {
+    background: #111111;
+    color: #555555;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================
+   MENSAJE
+========================= */
+
+#message {
+    min-height: 30px;
+
+    margin: 20px 0;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOTÓN REINICIAR
+========================= */
+
+#restart-btn {
+    border: none;
+
+    background: white;
+    color: #111111;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#restart-btn:hover {
+    transform: scale(1.05);
+    background: #dddddd;
+}
+
+
+/* =========================
+   VOLVER
+========================= */
+
+.back-btn {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #aaaaaa;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    color: white;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .game-container {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    #hangman-drawing {
+        transform: scale(0.85);
+    }
+
+    #word {
+        font-size: 25px;
+        gap: 8px;
+    }
+
+    .letter-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
