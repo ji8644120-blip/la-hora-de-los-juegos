@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trivia</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <h1>🧠 Trivia</h1>
+
+        <p class="subtitle">
+            Responde correctamente y demuestra cuánto sabes
+        </p>
+
+        <!-- Información del juego -->
+        <section class="game-info">
+
+            <div class="info-box">
+                <span>Pregunta</span>
+                <strong id="question-number">1/10</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Puntos</span>
+                <strong id="score">0</strong>
+            </div>
+
+        </section>
+
+
+        <!-- Pregunta -->
+        <section class="question-area">
+
+            <h2 id="question">
+                Cargando pregunta...
+            </h2>
+
+        </section>
+
+
+        <!-- Respuestas -->
+        <section id="answers" class="answers-area">
+
+            <!-- Las respuestas serán creadas con JavaScript -->
+
+        </section>
+
+
+        <!-- Mensaje -->
+        <p id="message"></p>
+
+
+        <!-- Siguiente pregunta -->
+        <button id="next-btn">
+            Siguiente pregunta →
+        </button>
+
+
+        <!-- Resultado final -->
+        <section id="result" class="result-area">
+
+            <h2>🎉 Trivia terminada</h2>
+
+            <p>
+                Tu puntuación fue:
+            </p>
+
+            <strong id="final-score">
+                0/10
+            </strong>
+
+            <button id="restart-btn">
+                🔄 Jugar nuevamente
+            </button>
+
+        </section>
+
+
+        <!-- Volver a la interfaz -->
+        <a href="../index.html" class="back-btn">
+            ← Volver a los juegos
+        </a>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
