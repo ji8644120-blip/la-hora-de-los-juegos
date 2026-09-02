@@ -26,7 +26,7 @@ if (savedName) {
 // VARIABLES
 // ==============================
 
-let board = ["", "", "", "", "", "", "", "",];
+let board = ["", "", "", "", "", "", "", "", ""];
 
 let gameActive = true;
 
@@ -260,7 +260,7 @@ restartButton.addEventListener("click", restartGame);
 
 function restartGame() {
 
-    board = ["", "", "", "", "", "", "", ""];
+   board = ["", "", "", "", "", "", "", "", ""];
 
     gameActive = true;
 
