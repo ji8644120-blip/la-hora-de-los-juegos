@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Piedra, Papel o Tijera</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <h1>🗿📄✂️</h1>
+
+        <h2>Piedra, Papel o Tijera</h2>
+
+        <p class="subtitle">
+            Elige una opción y enfréntate a la computadora
+        </p>
+
+
+        <!-- MARCADOR -->
+
+        <section class="score-board">
+
+            <div class="score-box">
+                <span>Tú</span>
+                <strong id="player-score">0</strong>
+            </div>
+
+            <div class="score-box">
+                <span>Computadora</span>
+                <strong id="computer-score">0</strong>
+            </div>
+
+        </section>
+
+
+        <!-- ELECCIONES -->
+
+        <section class="choices">
+
+            <button class="choice-btn" data-choice="piedra">
+                🗿
+                <span>Piedra</span>
+            </button>
+
+            <button class="choice-btn" data-choice="papel">
+                📄
+                <span>Papel</span>
+            </button>
+
+            <button class="choice-btn" data-choice="tijera">
+                ✂️
+                <span>Tijera</span>
+            </button>
+
+        </section>
+
+
+        <!-- RESULTADO -->
+
+        <section class="result-area">
+
+            <p id="player-choice">
+                Tú: -
+            </p>
+
+            <p id="computer-choice">
+                Computadora: -
+            </p>
+
+            <h2 id="result">
+                ¡Elige una opción!
+            </h2>
+
+        </section>
+
+
+        <!-- REINICIAR -->
+
+        <button id="restart-btn">
+            🔄 Reiniciar partida
+        </button>
+
+
+        <!-- VOLVER -->
+
+        <a href="../index.html" class="back-btn">
+            ← Volver a los juegos
+        </a>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
