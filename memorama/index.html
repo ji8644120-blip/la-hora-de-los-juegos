@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memorama | La Hora de los Juegos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+
+        <div class="logo">
+            🃏
+        </div>
+
+        <div class="header-text">
+            <h1>Memorama</h1>
+            <p>Encuentra todas las parejas</p>
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="game-container">
+
+        <!-- INFORMACIÓN DEL JUEGO -->
+        <section class="game-info">
+
+            <div class="info-box">
+                <span>🎯</span>
+                <strong>Movimientos</strong>
+                <span id="moves">0</span>
+            </div>
+
+            <div class="info-box">
+                <span>⏱️</span>
+                <strong>Tiempo</strong>
+                <span id="timer">00:00</span>
+            </div>
+
+            <div class="info-box">
+                <span>🃏</span>
+                <strong>Parejas</strong>
+                <span id="pairs">0 / 6</span>
+            </div>
+
+        </section>
+
+
+        <!-- TABLERO DEL MEMORAMA -->
+        <section class="memory-board" id="memoryBoard">
+
+            <!-- Las cartas serán creadas con JavaScript -->
+
+        </section>
+
+
+        <!-- MENSAJE DE VICTORIA -->
+        <section class="win-message" id="winMessage">
+
+            <div class="win-icon">
+                🏆
+            </div>
+
+            <h2>¡Felicidades!</h2>
+
+            <p>
+                ¡Encontraste todas las parejas!
+            </p>
+
+            <p>
+                Movimientos:
+                <strong id="finalMoves">0</strong>
+            </p>
+
+            <p>
+                Tiempo:
+                <strong id="finalTime">00:00</strong>
+            </p>
+
+            <button id="playAgainButton">
+                JUGAR DE NUEVO
+            </button>
+
+        </section>
+
+
+        <!-- BOTÓN VOLVER -->
+        <a href="../index.html" class="back-button">
+            ← VOLVER AL MENÚ PRINCIPAL
+        </a>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <p>
+            🎮 La Hora de los Juegos
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
