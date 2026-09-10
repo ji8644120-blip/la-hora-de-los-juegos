@@ -1,0 +1,402 @@
+/* ==============================
+   CONFIGURACIÓN GENERAL
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff1f2;
+    color: #4a1d1f;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   ENCABEZADO
+============================== */
+
+.header {
+    background: #e11d48;
+    color: white;
+
+    padding: 25px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.25);
+}
+
+.logo {
+    font-size: 50px;
+}
+
+.header-text {
+    text-align: left;
+}
+
+.header-text h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+
+/* ==============================
+   CONTENEDOR PRINCIPAL
+============================== */
+
+.game-container {
+    width: 90%;
+    max-width: 850px;
+
+    margin: 35px auto;
+
+    text-align: center;
+}
+
+
+/* ==============================
+   INFORMACIÓN DEL JUEGO
+============================== */
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background: white;
+
+    min-width: 150px;
+
+    padding: 15px 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(136, 19, 55, 0.12);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #881337;
+}
+
+.info-box span:first-child {
+    font-size: 22px;
+}
+
+.info-box strong {
+    font-size: 15px;
+}
+
+.info-box span:last-child {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   TABLERO
+============================== */
+
+.memory-board {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+}
+
+
+/* ==============================
+   CARTAS
+============================== */
+
+.memory-card {
+    aspect-ratio: 1 / 1;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transition: transform 0.5s;
+
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    backface-visibility: hidden;
+
+    box-shadow: 0 5px 12px rgba(136, 19, 55, 0.18);
+}
+
+
+/* PARTE TRASERA */
+
+.card-front {
+    background: #e11d48;
+
+    color: white;
+
+    font-size: 38px;
+
+    border: 4px solid #be123c;
+}
+
+
+/* PARTE DELANTERA */
+
+.card-back {
+    background: white;
+
+    color: #e11d48;
+
+    font-size: 42px;
+
+    transform: rotateY(180deg);
+
+    border: 4px solid #fda4af;
+}
+
+
+/* CARTA ENCONTRADA */
+
+.memory-card.matched .card-back {
+    background: #ffe4e6;
+
+    border-color: #16a34a;
+
+    box-shadow: 0 0 12px rgba(22, 163, 74, 0.35);
+}
+
+
+/* ==============================
+   MENSAJE DE VICTORIA
+============================== */
+
+.win-message {
+    display: none;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    max-width: 500px;
+
+    margin: 0 auto 30px;
+
+    box-shadow: 0 8px 25px rgba(136, 19, 55, 0.18);
+
+    border: 3px solid #fda4af;
+}
+
+.win-icon {
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.win-message h2 {
+    color: #e11d48;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.win-message p {
+    font-size: 17px;
+
+    margin: 8px 0;
+
+    color: #4a1d1f;
+}
+
+.win-message strong {
+    color: #e11d48;
+}
+
+
+/* ==============================
+   BOTÓN JUGAR DE NUEVO
+============================== */
+
+#playAgainButton {
+    margin-top: 20px;
+
+    padding: 13px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #e11d48;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#playAgainButton:hover {
+    background: #be123c;
+
+    transform: scale(1.05);
+}
+
+
+/* ==============================
+   BOTÓN VOLVER
+============================== */
+
+.back-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    background: #881337;
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    margin-top: 5px;
+}
+
+.back-button:hover {
+    background: #4a1d1f;
+
+    transform: scale(1.03);
+}
+
+
+/* ==============================
+   PIE DE PÁGINA
+============================== */
+
+footer {
+    margin-top: 40px;
+
+    background: #881337;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 40px;
+    }
+
+    .header-text h1 {
+        font-size: 24px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .game-container {
+        width: 94%;
+    }
+
+    .memory-board {
+        gap: 10px;
+    }
+
+    .card-front {
+        font-size: 28px;
+    }
+
+    .card-back {
+        font-size: 32px;
+    }
+
+    .info-box {
+        min-width: 120px;
+
+        padding: 12px;
+    }
+}
