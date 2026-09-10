@@ -117,7 +117,7 @@ body {
 
 
 /* ==============================
-   TARJETAS DE JUEGOS
+   TARJETAS
 ============================== */
 
 .features {
@@ -173,17 +173,66 @@ body {
 
 .contact-info {
     margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.contact-info p {
-    background: #fff1f2;
 
-    border: 1px solid #fda4af;
-    border-radius: 10px;
+/* ==============================
+   BOTONES DE CONTACTO
+============================== */
 
-    padding: 12px 18px;
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    max-width: 500px;
+    min-width: 190px;
+
+    padding: 14px 22px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.2s;
+
+    cursor: pointer;
+}
+
+
+/* WHATSAPP */
+
+.contact-button.whatsapp {
+    background: #16a34a;
+    color: white;
+    border: 2px solid #15803d;
+}
+
+.contact-button.whatsapp:hover {
+    background: #15803d;
+    transform: translateY(-3px);
+}
+
+
+/* GMAIL */
+
+.contact-button.gmail {
+    background: #e11d48;
+    color: white;
+    border: 2px solid #be123c;
+}
+
+.contact-button.gmail:hover {
+    background: #be123c;
+    transform: translateY(-3px);
 }
 
 
@@ -280,5 +329,14 @@ footer {
         width: 55px;
         height: 55px;
         font-size: 27px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-button {
+        width: 100%;
+        max-width: 300px;
     }
 }
