@@ -15,7 +15,7 @@ const welcomeName = document.getElementById("welcomeName");
 // COMPROBAR SI YA EXISTE UN NOMBRE
 // =========================================
 
-const savedName = localStorage.getItem("playerName");
+const savedName = sessionStorage.getItem("playerName");
 
 if (savedName) {
 
@@ -57,7 +57,7 @@ function enterPage() {
 
 
     // Guardar el nombre
-    localStorage.setItem("playerName", name);
+    sessionStorage.setItem("playerName", name);
 
 
     // Mostrar el nombre en la página
