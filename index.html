@@ -1,238 +1,265 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Hora de los Juegos</title>
 
-    <link rel="stylesheet" href="style.css">
+```
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-    <!-- ==============================
-         VENTANA OBLIGATORIA DE NOMBRE
-    =============================== -->
-    <div class="modal-overlay" id="nameModal">
+```
+<!-- ==============================
+     VENTANA OBLIGATORIA DE NOMBRE
+=============================== -->
+<div class="modal-overlay" id="nameModal">
 
-        <div class="name-modal">
+    <div class="name-modal">
 
-            <div class="modal-icon">🎮</div>
+        <div class="modal-icon">🎮</div>
 
-            <h2>¡Bienvenido!</h2>
+        <h2>¡Bienvenido!</h2>
 
-            <p>
-                Para entrar a <strong>La Hora de los Juegos</strong>,
-                escribe tu nombre.
-            </p>
+        <p>
+            Para entrar a <strong>La Hora de los Juegos</strong>,
+            escribe tu nombre.
+        </p>
 
-            <input
-                type="text"
-                id="nameInput"
-                placeholder="Escribe tu nombre..."
-                maxlength="20"
-                autocomplete="off"
-            >
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Escribe tu nombre..."
+            maxlength="20"
+            autocomplete="off"
+        >
 
-            <p class="error-message" id="nameError"></p>
+        <p class="error-message" id="nameError"></p>
 
-            <button id="enterButton">
-                ENTRAR
-            </button>
-
-        </div>
+        <button id="enterButton">
+            ENTRAR
+        </button>
 
     </div>
 
+</div>
+
+
+<!-- ==============================
+     PÁGINA PRINCIPAL
+=============================== -->
+<main id="mainPage">
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+
+        <div class="logo">
+            🎮
+        </div>
+
+        <div class="header-text">
+            <h1>La Hora de los Juegos</h1>
+            <p>¡Elige un juego y diviértete!</p>
+        </div>
+
+        <!-- INFORMACIÓN DEL JUGADOR -->
+        <div class="player">
+
+            <div class="player-name">
+                <span>Jugador</span>
+                <strong id="playerName">Jugador</strong>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="contact-header">
+
+                <span>
+                    📧 ji8644120@gmail.com
+                </span>
+
+                <span>
+                    📱 +57 3188880828
+                </span>
+
+                <a
+                    href="sobre-nosotros/index.html"
+                    class="about-button"
+                >
+                    SOBRE NOSOTROS
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
 
     <!-- ==============================
-         PÁGINA PRINCIPAL
+         BIENVENIDA
     =============================== -->
-    <main id="mainPage">
+    <section class="welcome">
 
-        <!-- ENCABEZADO -->
-        <header class="header">
+        <p class="welcome-small">
+            ¡Hola!
+        </p>
 
-            <div class="logo">
-                🎮
+        <h2>
+            <span id="welcomeName">Jugador</span>,
+            ¿a qué quieres jugar?
+        </h2>
+
+        <p>
+            Escoge uno de nuestros juegos y demuestra lo que sabes.
+        </p>
+
+    </section>
+
+
+    <!-- ==============================
+         JUEGOS
+    =============================== -->
+    <section class="games-section">
+
+        <!-- TRIQUI -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                ❌⭕
             </div>
 
-            <div class="header-text">
-                <h1>La Hora de los Juegos</h1>
-                <p>¡Elige un juego y diviértete!</p>
-            </div>
-
-
-            <!-- INFORMACIÓN DEL JUGADOR -->
-            <div class="player">
-
-                <div class="player-name">
-                    <span>Jugador</span>
-                    <strong id="playerName">Jugador</strong>
-                </div>
-
-
-                <!-- CONTACTO -->
-                <div class="contact-header">
-
-                    <span>
-                        📧 ji8644120@gmail.com
-                    </span>
-
-                    <span>
-                        📱 +57 3188880828
-                    </span>
-
-                    <a
-                        href="sobre-nosotros/index.html"
-                        class="about-button"
-                    >
-                        SOBRE NOSOTROS
-                    </a>
-
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <!-- ==============================
-             BIENVENIDA
-        =============================== -->
-        <section class="welcome">
-
-            <p class="welcome-small">
-                ¡Hola!
-            </p>
-
-            <h2>
-                <span id="welcomeName">Jugador</span>,
-                ¿a qué quieres jugar?
-            </h2>
+            <h3>Triqui</h3>
 
             <p>
-                Escoge uno de nuestros juegos y demuestra lo que sabes.
+                Pon tres símbolos en línea antes que tu rival.
             </p>
 
-        </section>
+            <a
+                href="triqui/index.html"
+                class="play-button"
+            >
+                JUGAR
+            </a>
+
+        </div>
 
 
-        <!-- ==============================
-             JUEGOS
-        =============================== -->
-        <section class="games-section">
+        <!-- AHORCADO -->
+        <div class="game-card">
 
-            <!-- TRIQUI -->
-            <div class="game-card">
-
-                <div class="game-icon">
-                    ❌⭕
-                </div>
-
-                <h3>Triqui</h3>
-
-                <p>
-                    Pon tres símbolos en línea antes que tu rival.
-                </p>
-
-                <a
-                    href="triqui/index.html"
-                    class="play-button"
-                >
-                    JUGAR
-                </a>
-
+            <div class="game-icon">
+                💀
             </div>
 
-
-            <!-- AHORCADO -->
-            <div class="game-card">
-
-                <div class="game-icon">
-                    💀
-                </div>
-
-                <h3>Ahorcado</h3>
-
-                <p>
-                    Adivina la palabra antes de quedarte sin oportunidades.
-                </p>
-
-                <a
-                    href="ahorcado/index.html"
-                    class="play-button"
-                >
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- TRIVIA -->
-            <div class="game-card">
-
-                <div class="game-icon">
-                    🧠
-                </div>
-
-                <h3>Trivia</h3>
-
-                <p>
-                    Responde las preguntas y demuestra cuánto sabes.
-                </p>
-
-                <a
-                    href="trivia/index.html"
-                    class="play-button"
-                >
-                    JUGAR
-                </a>
-
-            </div>
-
-
-            <!-- PIEDRA, PAPEL O TIJERA -->
-            <div class="game-card">
-
-                <div class="game-icon">
-                    ✊
-                </div>
-
-                <h3>Piedra, Papel o Tijera</h3>
-
-                <p>
-                    Elige tu jugada y vence a tu oponente.
-                </p>
-
-                <a
-                    href="piedra-papel-tijera/index.html"
-                    class="play-button"
-                >
-                    JUGAR
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==============================
-             PIE DE PÁGINA
-        =============================== -->
-        <footer>
+            <h3>Ahorcado</h3>
 
             <p>
-                🎮 La Hora de los Juegos
+                Adivina la palabra antes de quedarte sin oportunidades.
             </p>
 
-        </footer>
+            <a
+                href="ahorcado/index.html"
+                class="play-button"
+            >
+                JUGAR
+            </a>
 
-    </main>
+        </div>
 
 
-    <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
+        <!-- TRIVIA -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                🧠
+            </div>
+
+            <h3>Trivia</h3>
+
+            <p>
+                Responde las preguntas y demuestra cuánto sabes.
+            </p>
+
+            <a
+                href="trivia/index.html"
+                class="play-button"
+            >
+                JUGAR
+            </a>
+
+        </div>
+
+
+        <!-- PIEDRA, PAPEL O TIJERA -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                ✊
+            </div>
+
+            <h3>Piedra, Papel o Tijera</h3>
+
+            <p>
+                Elige tu jugada y vence a tu oponente.
+            </p>
+
+            <a
+                href="piedra-papel-tijera/index.html"
+                class="play-button"
+            >
+                JUGAR
+            </a>
+
+        </div>
+
+
+        <!-- MEMORAMA -->
+        <div class="game-card">
+
+            <div class="game-icon">
+                🃏
+            </div>
+
+            <h3>Memorama</h3>
+
+            <p>
+                Encuentra todas las parejas y demuestra qué tan buena es tu memoria.
+            </p>
+
+            <a
+                href="memorama/index.html"
+                class="play-button"
+            >
+                JUGAR
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PIE DE PÁGINA
+    =============================== -->
+    <footer>
+
+        <p>
+            🎮 La Hora de los Juegos
+        </p>
+
+    </footer>
+
+</main>
+
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
+```
 
 </body>
 </html>
