@@ -1,265 +1,298 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>La Hora de los Juegos</title>
 
-```
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<!-- ==============================
-     VENTANA OBLIGATORIA DE NOMBRE
-=============================== -->
-<div class="modal-overlay" id="nameModal">
+    <!-- ==============================
+         VENTANA OBLIGATORIA DE NOMBRE
+    =============================== -->
 
-    <div class="name-modal">
+    <div class="modal-overlay" id="nameModal">
 
-        <div class="modal-icon">🎮</div>
+        <div class="name-modal">
 
-        <h2>¡Bienvenido!</h2>
+            <div class="modal-icon">🎮</div>
 
-        <p>
-            Para entrar a <strong>La Hora de los Juegos</strong>,
-            escribe tu nombre.
-        </p>
+            <h2>¡Bienvenido!</h2>
 
-        <input
-            type="text"
-            id="nameInput"
-            placeholder="Escribe tu nombre..."
-            maxlength="20"
-            autocomplete="off"
-        >
+            <p>
+                Para entrar a <strong>La Hora de los Juegos</strong>,
+                escribe tu nombre.
+            </p>
 
-        <p class="error-message" id="nameError"></p>
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="Escribe tu nombre..."
+                maxlength="20"
+                autocomplete="off"
+            >
 
-        <button id="enterButton">
-            ENTRAR
-        </button>
+            <p class="error-message" id="nameError"></p>
+
+            <button id="enterButton">
+                ENTRAR
+            </button>
+
+        </div>
 
     </div>
 
-</div>
 
+    <!-- ==============================
+         PÁGINA PRINCIPAL
+    =============================== -->
 
-<!-- ==============================
-     PÁGINA PRINCIPAL
-=============================== -->
-<main id="mainPage">
+    <main id="mainPage">
 
-    <!-- ENCABEZADO -->
-    <header class="header">
+        <!-- ENCABEZADO -->
 
-        <div class="logo">
-            🎮
-        </div>
+        <header class="header">
 
-        <div class="header-text">
-            <h1>La Hora de los Juegos</h1>
-            <p>¡Elige un juego y diviértete!</p>
-        </div>
-
-        <!-- INFORMACIÓN DEL JUGADOR -->
-        <div class="player">
-
-            <div class="player-name">
-                <span>Jugador</span>
-                <strong id="playerName">Jugador</strong>
+            <div class="logo">
+                🎮
             </div>
 
-            <!-- CONTACTO -->
-            <div class="contact-header">
+            <div class="header-text">
 
-                <span>
-                    📧 ji8644120@gmail.com
-                </span>
+                <h1>
+                    La Hora de los Juegos
+                </h1>
 
-                <span>
-                    📱 +57 3188880828
-                </span>
+                <p>
+                    ¡Elige un juego y diviértete!
+                </p>
+
+            </div>
+
+
+            <!-- INFORMACIÓN DEL JUGADOR -->
+
+            <div class="player">
+
+                <div class="player-name">
+
+                    <span>
+                        Jugador
+                    </span>
+
+                    <strong id="playerName">
+                        Jugador
+                    </strong>
+
+                </div>
+
+
+                <!-- BOTÓN SOBRE NOSOTROS -->
+
+                <div class="contact-header">
+
+                    <a
+                        href="sobre-nosotros/index.html"
+                        class="about-button"
+                    >
+                        SOBRE NOSOTROS
+                    </a>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==============================
+             BIENVENIDA
+        =============================== -->
+
+        <section class="welcome">
+
+            <p class="welcome-small">
+                ¡Hola!
+            </p>
+
+            <h2>
+
+                <span id="welcomeName">
+                    Jugador
+                </span>,
+
+                ¿a qué quieres jugar?
+
+            </h2>
+
+            <p>
+                Escoge uno de nuestros juegos y demuestra lo que sabes.
+            </p>
+
+        </section>
+
+
+        <!-- ==============================
+             JUEGOS
+        =============================== -->
+
+        <section class="games-section">
+
+
+            <!-- TRIQUI -->
+
+            <div class="game-card">
+
+                <div class="game-icon">
+                    ❌⭕
+                </div>
+
+                <h3>
+                    Triqui
+                </h3>
+
+                <p>
+                    Pon tres símbolos en línea antes que tu rival.
+                </p>
 
                 <a
-                    href="sobre-nosotros/index.html"
-                    class="about-button"
+                    href="triqui/index.html"
+                    class="play-button"
                 >
-                    SOBRE NOSOTROS
+                    JUGAR
                 </a>
 
             </div>
 
-        </div>
 
-    </header>
+            <!-- AHORCADO -->
 
+            <div class="game-card">
 
-    <!-- ==============================
-         BIENVENIDA
-    =============================== -->
-    <section class="welcome">
+                <div class="game-icon">
+                    💀
+                </div>
 
-        <p class="welcome-small">
-            ¡Hola!
-        </p>
+                <h3>
+                    Ahorcado
+                </h3>
 
-        <h2>
-            <span id="welcomeName">Jugador</span>,
-            ¿a qué quieres jugar?
-        </h2>
+                <p>
+                    Adivina la palabra antes de quedarte sin oportunidades.
+                </p>
 
-        <p>
-            Escoge uno de nuestros juegos y demuestra lo que sabes.
-        </p>
+                <a
+                    href="ahorcado/index.html"
+                    class="play-button"
+                >
+                    JUGAR
+                </a>
 
-    </section>
-
-
-    <!-- ==============================
-         JUEGOS
-    =============================== -->
-    <section class="games-section">
-
-        <!-- TRIQUI -->
-        <div class="game-card">
-
-            <div class="game-icon">
-                ❌⭕
             </div>
 
-            <h3>Triqui</h3>
 
-            <p>
-                Pon tres símbolos en línea antes que tu rival.
-            </p>
+            <!-- TRIVIA -->
 
-            <a
-                href="triqui/index.html"
-                class="play-button"
-            >
-                JUGAR
-            </a>
+            <div class="game-card">
 
-        </div>
+                <div class="game-icon">
+                    🧠
+                </div>
 
+                <h3>
+                    Trivia
+                </h3>
 
-        <!-- AHORCADO -->
-        <div class="game-card">
+                <p>
+                    Responde las preguntas y demuestra cuánto sabes.
+                </p>
 
-            <div class="game-icon">
-                💀
+                <a
+                    href="trivia/index.html"
+                    class="play-button"
+                >
+                    JUGAR
+                </a>
+
             </div>
 
-            <h3>Ahorcado</h3>
 
-            <p>
-                Adivina la palabra antes de quedarte sin oportunidades.
-            </p>
+            <!-- PIEDRA, PAPEL O TIJERA -->
 
-            <a
-                href="ahorcado/index.html"
-                class="play-button"
-            >
-                JUGAR
-            </a>
+            <div class="game-card">
 
-        </div>
+                <div class="game-icon">
+                    ✊
+                </div>
 
+                <h3>
+                    Piedra, Papel o Tijera
+                </h3>
 
-        <!-- TRIVIA -->
-        <div class="game-card">
+                <p>
+                    Elige tu jugada y vence a tu oponente.
+                </p>
 
-            <div class="game-icon">
-                🧠
+                <a
+                    href="piedra-papel-tijera/index.html"
+                    class="play-button"
+                >
+                    JUGAR
+                </a>
+
             </div>
 
-            <h3>Trivia</h3>
 
-            <p>
-                Responde las preguntas y demuestra cuánto sabes.
-            </p>
+            <!-- MEMORAMA -->
 
-            <a
-                href="trivia/index.html"
-                class="play-button"
-            >
-                JUGAR
-            </a>
+            <div class="game-card">
 
-        </div>
+                <div class="game-icon">
+                    🃏
+                </div>
 
+                <h3>
+                    Memorama
+                </h3>
 
-        <!-- PIEDRA, PAPEL O TIJERA -->
-        <div class="game-card">
+                <p>
+                    Encuentra todas las parejas y demuestra qué tan buena es tu memoria.
+                </p>
 
-            <div class="game-icon">
-                ✊
+                <a
+                    href="memorama/index.html"
+                    class="play-button"
+                >
+                    JUGAR
+                </a>
+
             </div>
 
-            <h3>Piedra, Papel o Tijera</h3>
+        </section>
+
+
+        <!-- ==============================
+             PIE DE PÁGINA
+        =============================== -->
+
+        <footer>
 
             <p>
-                Elige tu jugada y vence a tu oponente.
+                🎮 La Hora de los Juegos
             </p>
 
-            <a
-                href="piedra-papel-tijera/index.html"
-                class="play-button"
-            >
-                JUGAR
-            </a>
+        </footer>
 
-        </div>
+    </main>
 
 
-        <!-- MEMORAMA -->
-        <div class="game-card">
+    <!-- JAVASCRIPT -->
 
-            <div class="game-icon">
-                🃏
-            </div>
-
-            <h3>Memorama</h3>
-
-            <p>
-                Encuentra todas las parejas y demuestra qué tan buena es tu memoria.
-            </p>
-
-            <a
-                href="memorama/index.html"
-                class="play-button"
-            >
-                JUGAR
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         PIE DE PÁGINA
-    =============================== -->
-    <footer>
-
-        <p>
-            🎮 La Hora de los Juegos
-        </p>
-
-    </footer>
-
-</main>
-
-
-<!-- JAVASCRIPT -->
-<script src="script.js"></script>
-```
+    <script src="script.js"></script>
 
 </body>
 </html>
